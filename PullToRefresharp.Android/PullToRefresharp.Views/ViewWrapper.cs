@@ -314,7 +314,10 @@ namespace PullToRefresharp.Android.Views
                     var y_delta = last_touch_y - (int)e.RawY;
                     last_touch_y = (int)e.RawY;
 
-                    bool isMovingUp = y_delta > 0;
+
+				//The evaluation of the delta has been set from 0 to 2. This de-sensitizes a Move event that was meant as a 
+				//Touch, but does not intefre with the pulldown. 
+					bool isMovingUp = y_delta > 2;
                     if (isMovingUp && current_scroll_y >= 0 || !ContentView.IsAtTop) {
                         should_send_down_before_up = false;
                         ContentView.ForceHandleTouchEvent(e);
