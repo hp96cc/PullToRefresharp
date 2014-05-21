@@ -45,7 +45,7 @@ namespace PullToRefresharp.Android.Views
         private Scroller scroller;
         private IPullDownProgressIndicator pulldown_progress_indicator;
         private ViewGroup inner_header;
-        private TextView refresh_text;
+		public TextView refresh_text;
 
         #region Public API
 
@@ -175,7 +175,7 @@ namespace PullToRefresharp.Android.Views
             }
         }
 
-        private void UpdateRefreshState(PullToRefresharpRefreshState state)
+		public virtual void UpdateRefreshState(PullToRefresharpRefreshState state)
         {
             if (refresh_state == state) {
                 return;
